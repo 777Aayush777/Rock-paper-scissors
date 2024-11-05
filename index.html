@@ -12,33 +12,93 @@
         function getComputerChoice(){
         let z =Math.floor(Math.random() * 3);
         if(z===0){
-            return console.log("ROCK");
+            return "ROCK";
         }
         else if(z===1){
-            return console.log("PAPER");
+            return "PAPER";
         }
         else{
-            return console.log("SCISSORS");
+            return "SCISSORS";
         }
-
-        getComputerChoice();
-
         }
 
         function getHumanChoice(){
             let x = prompt("Rock,Paper or Scissors?")
+            x=x.toUpperCase();
+            return x;
         }
+
+        const playGame = function(n){
+        while((computerscore+humanscore)!=5){
+        let s1 = getComputerChoice();
+        let s2 = getHumanChoice();
+
+        console.log(s1);
 
         function playRound(humanChoice, computerChoice) {
+            if(s2=="ROCK" || s2=="PAPER"||s2=="SCISSORS"|| s2=="SCISSOR"){
+                if(s2=="ROCK" && s1=="PAPER"){
+                    alert("COMPUTER WINS! PAPER BEATS ROCK");
+                    computerscore++;
+                    
+                }
+                else if(s2=="PAPER" && s1=="ROCK"){
+                    alert("YOU WIN! PAPER BEATS ROCK");
+                    humanscore++;
+                    
+                }
+                else if((s2=="SCISSORS"||s2=="SCISSOR") && s1=="ROCK"){
+                    alert("COMPUTER WINS! ROCK BEATS SCISSORS");
+                    computerscore++;
+                    
+                }
+                else if(s2=="ROCK" && s1=="SCISSORS"){
+                    alert("YOU WIN! ROCK BEATS SCISSORS");
+                    humanscore++;
+                    
+                }
+                else if((s2=="SCISSORS"||s2=="SCISSOR") && s1=="PAPER"){
+                    alert("YOU WIN! SCISSORS BEATS PAPER");
+                    humanscore++;
+                    
+                }
+                else if(s2=="PAPER" && s1=="SCISSORS"){
+                    alert("COMPUTER WINS! SCISSORS BEATS PAPER");
+                    computerscore++;
+                    
+                }
+                else{
+                    alert("IT'S A TIE!");
+                    
+                }
 
-
+            }
+            else{ 
+                alert("INVALID INPUT! ENTER ROCK, PAPER OR SCISSORS");
+            }
         }
 
-        const humanSelection = getHumanChoice();
+        const humanSelection = s2;
         const computerSelection = getComputerChoice();
 
         playRound(humanSelection, computerSelection);
 
+        console.log("Your score:",humanscore);
+        console.log("Computer's score:",computerscore);
+    }
+    }
+
+    console.log(playGame());
+
+    if(computerscore>2){
+        alert("YOU LOST! BETTER LUCK NEXT TIME.");
+    }
+    else{
+        alert("YOU WON! CONGRATULATIONS!");
+    }
+    
+
+        
 
     </script>
 </body>
