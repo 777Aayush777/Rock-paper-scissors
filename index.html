@@ -1,105 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <script>
-        let humanscore = 0;
-        let computerscore =0;
-        function getComputerChoice(){
-        let z =Math.floor(Math.random() * 3);
-        if(z===0){
-            return "ROCK";
-        }
-        else if(z===1){
-            return "PAPER";
-        }
-        else{
-            return "SCISSORS";
-        }
-        }
-
-        function getHumanChoice(){
-            let x = prompt("Rock,Paper or Scissors?")
-            x=x.toUpperCase();
-            return x;
-        }
-
-        const playGame = function(n){
-        while((computerscore+humanscore)!=5){
-        let s1 = getComputerChoice();
-        let s2 = getHumanChoice();
-
-        console.log(s1);
-
-        function playRound(humanChoice, computerChoice) {
-            if(s2=="ROCK" || s2=="PAPER"||s2=="SCISSORS"|| s2=="SCISSOR"){
-                if(s2=="ROCK" && s1=="PAPER"){
-                    alert("COMPUTER WINS! PAPER BEATS ROCK");
-                    computerscore++;
-                    
-                }
-                else if(s2=="PAPER" && s1=="ROCK"){
-                    alert("YOU WIN! PAPER BEATS ROCK");
-                    humanscore++;
-                    
-                }
-                else if((s2=="SCISSORS"||s2=="SCISSOR") && s1=="ROCK"){
-                    alert("COMPUTER WINS! ROCK BEATS SCISSORS");
-                    computerscore++;
-                    
-                }
-                else if(s2=="ROCK" && s1=="SCISSORS"){
-                    alert("YOU WIN! ROCK BEATS SCISSORS");
-                    humanscore++;
-                    
-                }
-                else if((s2=="SCISSORS"||s2=="SCISSOR") && s1=="PAPER"){
-                    alert("YOU WIN! SCISSORS BEATS PAPER");
-                    humanscore++;
-                    
-                }
-                else if(s2=="PAPER" && s1=="SCISSORS"){
-                    alert("COMPUTER WINS! SCISSORS BEATS PAPER");
-                    computerscore++;
-                    
-                }
-                else{
-                    alert("IT'S A TIE!");
-                    
-                }
-
-            }
-            else{ 
-                alert("INVALID INPUT! ENTER ROCK, PAPER OR SCISSORS");
-            }
-        }
-
-        const humanSelection = s2;
-        const computerSelection = getComputerChoice();
-
-        playRound(humanSelection, computerSelection);
-
-        console.log("Your score:",humanscore);
-        console.log("Computer's score:",computerscore);
-    }
-    }
-
-    console.log(playGame());
-
-    if(computerscore>2){
-        alert("YOU LOST! BETTER LUCK NEXT TIME.");
-    }
-    else{
-        alert("YOU WON! CONGRATULATIONS!");
-    }
+    <script src="rpsui.js"></script>
     
+    <h1>Welcome to Rock Paper Scissors!</h1>
+    <div class="inst">
+        <p>This is a 5-round game between you and the computer. Here's how to play:</p>
+        <ul>
+            <li>Click on either Rock, Paper, or Scissors to make your choice</li>
+            <li>The computer will randomly make its choice</li>
+            <li>First player to win 3 rounds wins the game!</li>
+        </ul>
+        <p>Your current score will be shown after each round.</p>
+        <p>Ready? Make your choice to start playing!</p>
+    </div>
+    <div class="bigcont">
+    <div class="btn">
+    <button id="rock">Rock👊</button>
+    <button id="paper">Paper✋</button>
+    <button id="scissors">Scissors✌️</button>
+    </div>
 
-        
-
-    </script>
+    <div id="container">
+    <h3>SCORES</h3>
+    <div id="score1"></div>
+    <div id="score"></div>
+    <div id="roundwin"></div>
+    <h2 id="finalwin"></h2>
+    </div>
+    </div>
 </body>
 </html>
